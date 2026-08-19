@@ -11,6 +11,7 @@
 - [🚀 Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Run with PowerShell (Windows)](#run-with-powershell-windows)
   - [Backend Services Setup (Optional)](#backend-services-setup-optional)
 - [📚 Usage](#-usage)
   - [Converting Text to Handwriting](#converting-text-to-handwriting)
@@ -124,6 +125,24 @@ You can access the live version of the application at [assignme.live](https://as
    python -m http.server 8000
    # then visit http://localhost:8000
    ```
+
+### Run with PowerShell (Windows)
+
+Open the Run dialog (**Win+R**), type `powershell`, and press Enter. Then run one of the following (adjust the path to wherever you cloned the repo):
+
+**Option A — Node.js (recommended, uses the repo's `server.js`):**
+```powershell
+cd "C:\Users\dogga\OneDrive\Desktop\Desktop\handwritten\asignme"; npm install; npm start
+```
+Then open http://localhost:3000
+
+**Option B — Python (no install needed):**
+```powershell
+cd "C:\Users\dogga\OneDrive\Desktop\Desktop\handwritten\asignme\Assignment-main"; python -m http.server 8000
+```
+Then open http://localhost:8000
+
+> If you see a "port already in use" error, stop the previous server or use a different port (e.g. `python -m http.server 8080` → http://localhost:8080).
 
 ### Backend Services Setup (Optional)
 
