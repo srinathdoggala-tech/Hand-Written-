@@ -1,5 +1,9 @@
 ## 📑 Table of Contents
+<<<<<<< HEAD
 
+=======
+- [AssignMe - Complete Your Assignments with Custom Handwriting]
+>>>>>>> 0cc52f2de39497d069ae67040440b2eb0740b5fa
 - [🛡️ Open Source](#️-open-source)
 - [🌟 Features](#-features)
   - [1. Assignment Text to Handwriting Converter](#1-assignment-text-to-handwriting-converter)
