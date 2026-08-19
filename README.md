@@ -451,23 +451,7 @@ This project is available under the MIT License. See the LICENSE file for more i
 - **Google Gemini**: AI-powered question processing and understanding
 - **Docker**: Containerization for scalable backend services
 
-## 📧 Contact
-
-Rajan  Bhai (link  availble hai har  jagha )
-
----
-
-## ✨ Contributors
-
-Thanks to all the wonderful contributors 💖
-
-<a href="https://github.com/Rajan167030/asignme/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Rajan167030/asignme" />
-</a>
 
 
-See full list of contributor contributions: [Contribution Graph](https://github.com/Rajan167030/asignme/graphs/contributors)
-
-***
 
 
