@@ -96,18 +96,33 @@ def process_file(file_path, subject):
         HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE
     }
     
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # Use a vision-capable model by default. Override with GEMINI_MODEL if needed.
+    model_name = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")
+    model = genai.GenerativeModel(model_name)
     extracted_text = ""
 
     # Process each image with the generative model
     for image_file in image_files:
         image = Image.open(image_file)
-        result = model.generate_content([
-            '''EXTRACT TEXT FROM IT,
-               IF IT'S IN A TABLE EXTRACT THE TABLE,
-               IF THERE IS A DIAGRAM SUMMARIZE THE DIAGRAM''',
-            image
-        ], safety_settings=safety_settings)
+        try:
+            result = model.generate_content([
+                '''EXTRACT TEXT FROM IT,
+                   IF IT'S IN A TABLE EXTRACT THE TABLE,
+                   IF THERE IS A DIAGRAM SUMMARIZE THE DIAGRAM''',
+                image
+            ], safety_settings=safety_settings)
+        except Exception as e:
+            err = str(e)
+            if "image input" in err.lower() or "does not support" in err.lower():
+                msg = (
+                    "The configured Gemini model ('%s') does not support image input. "
+                    "Set the GEMINI_MODEL environment variable to a vision-capable model "
+                    "(e.g. gemini-1.5-flash or gemini-1.5-pro) and ensure your API key has "
+                    "access to it, then restart the service." % model_name
+                )
+                logger.error(msg)
+                return PlainTextResponse(msg, status_code=400)
+            raise
         extracted_text += result.text + "\n\n"
         logger.info(f"Extracted text from image: {image_file}")
 
