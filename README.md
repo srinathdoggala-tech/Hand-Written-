@@ -1,5 +1,5 @@
 ## 📑 Table of Contents
-- [AssignMe - Complete Your Assignments with Custom Handwriting](#assignme---complete-your-assignments-with-custom-handwriting)
+
 - [🛡️ Open Source](#️-open-source)
 - [🌟 Features](#-features)
   - [1. Assignment Text to Handwriting Converter](#1-assignment-text-to-handwriting-converter)
@@ -53,9 +53,6 @@ AssignMe is an open source web application that helps students complete their as
 
 <img width="1923" height="875" alt="Screenshot 2025-08-31 232857" src="https://github.com/user-attachments/assets/8e6649c0-dec6-4df4-bd86-e721801dfa80" />
 
-
-
-
 ## 🛡️ Open Source
 
 This project is open source and released under the [MIT License](./LICENSE). You are free to use, modify, and distribute this software. Contributions are welcome!
@@ -63,6 +60,7 @@ This project is open source and released under the [MIT License](./LICENSE). You
 ## 🌟 Features
 
 ### 1. Assignment Text to Handwriting Converter
+
 - Upload assignment questions (PDF or image)
 - Enter subject name for better processing
 - Customize handwriting style with various font options
@@ -72,17 +70,20 @@ This project is open source and released under the [MIT License](./LICENSE). You
 - Generate and download handwritten documents as images or PDF
 
 ### 2. Custom Handwriting Font Generator
+
 - Create your own handwriting font
 - Capture handwriting samples from camera or uploaded images
 - Follow guidelines for best results
 - Use your custom font in the handwriting generator
 
 ### 3. AI-Powered Q&A System
+
 - Intelligent question processing using Google Gemini AI
 - Contextual understanding of assignment questions
 - Enhanced text extraction and processing capabilities
 
 ### 4. Advanced Font Processing Backend
+
 - Server-side FontForge integration for professional font generation
 - Dockerized backend service for scalable font processing
 - High-quality font rendering and optimization
@@ -98,26 +99,32 @@ This was early prototype system architecture that laid the solid foundation for 
 You can access the live version of the application at [assignme.live](https://assignme.live) or set up a local development environment following the instructions below.
 
 ### Prerequisites
+
 - Modern web browser (Chrome, Firefox, Edge recommended)
 - Internet connection
 - For backend services: Docker (optional)
 - Python 3.8+ (for AI services)
 
 ### Installation
+
 1. Clone the repository:
+
    ```
    git clone https://github.com/yourusername/assignme.git
    ```
+
 2. Navigate to the project directory:
+
    ```
    cd assignme
    ```
 
 3. Open the project:
-   * Simply open `index.html` in your web browser
-   * No build process or server setup required
-   
+   - Simply open `index.html` in your web browser
+   - No build process or server setup required
+
 For local development, you can use a simple HTTP server:
+
    ```
    # Using Python (Python 3)
    python -m http.server
@@ -129,14 +136,17 @@ For local development, you can use a simple HTTP server:
 ### Backend Services Setup (Optional)
 
 #### FontForge Backend Service
+
 For advanced font processing capabilities:
 
 1. Navigate to the fontforge backend directory:
+
    ```
    cd fontforge_backend
    ```
 
 2. Build and run with Docker:
+
    ```
    docker build -t assignme-fontforge .
    docker run -p 5000:5000 assignme-fontforge
@@ -145,14 +155,17 @@ For advanced font processing capabilities:
 3. The FontForge backend will be available at `http://localhost:5000`
 
 #### Gemini Q&A Service
+
 For AI-powered question processing:
 
 1. Navigate to the Q&A directory:
+
    ```
    cd "q&a gemini"
    ```
 
 2. Install dependencies:
+
    ```
    pip install -r requirements.txt
    ```
@@ -160,17 +173,19 @@ For AI-powered question processing:
 3. Set up your Google Gemini API key in environment variables
 
 4. Run the service:
+
    ```
    python main.py
    ```
 
 **Note:** While this is a static web application that runs in the browser, the backend services provide enhanced functionality for font generation and AI processing.
 
-5. You're ready to go! The application will automatically use the correct configuration based on your environment.
+1. You're ready to go! The application will automatically use the correct configuration based on your environment.
 
 ## 📚 Usage
 
 ### Converting Text to Handwriting
+
 1. Open the home page (`index.html`)
 2. Upload your assignment question file (PDF/image)
 3. Enter the subject name
@@ -181,6 +196,7 @@ For AI-powered question processing:
 8. Download the result as a PDF or individual images
 
 ### Creating Your Own Handwriting Font
+
 1. Navigate to "Own Handwriting" section
 2. Follow the capture guidelines (stay in the box, align with grid, use black pen)
 3. Either capture handwriting samples with your camera or upload images
@@ -190,6 +206,7 @@ For AI-powered question processing:
 ## 🔧 Customization Options
 
 ### Handwriting Options
+
 - **Font Selection**: Choose from 30+ handwriting styles
 - **Font Size**: Adjust from small to large (up to 30pt)
 - **Upload Custom Font**: Add your own TTF/OTF font files
@@ -201,7 +218,6 @@ For AI-powered question processing:
 - **Pen Color**: Choose between blue, black, red, or green ink
 
 ## 📂 Project Structure
-
 
 ```
 
@@ -312,16 +328,19 @@ assignme/
 ## 🏗️ Architecture Overview
 
 ### Frontend Components
+
 - **Main Application**: Static HTML/CSS/JS application running in browser
 - **Canvas Page**: Interactive handwriting generation interface
 - **Capture Interface**: Handwriting sample collection system
 
 ### Backend Services
+
 - **FontForge Backend**: Dockerized Python service using FontForge for professional font generation
 - **Gemini Q&A Service**: AI-powered question processing using Google's Gemini API
 - **File Processing API**: Handles document upload and text extraction
 
 ### Key Features
+
 - **Client-Side Processing**: Most functionality runs directly in the browser
 - **Scalable Backend**: Optional backend services for enhanced capabilities
 - **AI Integration**: Gemini AI for intelligent question understanding
@@ -332,6 +351,7 @@ assignme/
 The application integrates with multiple backend services:
 
 ### Main File Processing API
+
 ```javascript
 const url = "https://test2-sfwm.onrender.com/process-file/";
 
@@ -353,6 +373,7 @@ function uploadFile() {
 ```
 
 ### FontForge Backend API
+
 ```javascript
 // Font generation endpoint
 const fontForgeUrl = "http://localhost:5000/generate-font/";
@@ -365,6 +386,7 @@ function processHandwritingFont(samples) {
 ```
 
 ### Gemini Q&A API
+
 ```javascript
 // AI question processing
 const geminiUrl = "http://localhost:8000/process-question/";
@@ -381,6 +403,7 @@ function analyzeQuestion(questionText, subject) {
 ## 🐳 Docker Deployment
 
 ### FontForge Backend
+
 ```bash
 # Build the FontForge service
 cd fontforge_backend
@@ -391,6 +414,7 @@ docker run -d -p 5000:5000 --name fontforge-service assignme-fontforge
 ```
 
 ### Complete Stack with Docker Compose
+
 ```yaml
 version: '3.8'
 services:
@@ -410,13 +434,16 @@ services:
 ## 🤖 AI Features
 
 ### Gemini Integration
+
 The Q&A Gemini service provides:
+
 - **Question Understanding**: Context-aware processing of assignment questions
 - **Subject Recognition**: Automatic subject classification and relevant processing
 - **Content Enhancement**: Improved text extraction from images and PDFs
 - **Language Support**: Multi-language question processing capabilities
 
 ### Setup Requirements
+
 1. Google Gemini API key
 2. Python 3.8+
 3. Required dependencies (see `q&a gemini/requirements.txt`)
@@ -432,6 +459,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 5. Open a Pull Request
 
 ### Development Areas
+
 - **Frontend Enhancements**: Improve UI/UX and add new features
 - **Backend Services**: Enhance AI processing and font generation
 - **API Integration**: Develop new backend service integrations
@@ -450,8 +478,3 @@ This project is available under the MIT License. See the LICENSE file for more i
 - **FontForge**: Open-source font editor for professional font generation
 - **Google Gemini**: AI-powered question processing and understanding
 - **Docker**: Containerization for scalable backend services
-
-
-
-
-
